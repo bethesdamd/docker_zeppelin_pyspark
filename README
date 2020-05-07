@@ -4,6 +4,8 @@ So this shows both using Zeppelin, and PySpark (Zeppelin has other kernels)
 Docker image is here: https://hub.docker.com/r/apache/zeppelin/tags
 I used 0.9.0 but there may be something more recent.
 
+Note this pulls a data file from another repo.
+
 docker pull apache/zeppelin:0.9.0
 docker run -p 8080:8080 apache/zeppelin:0.9.0
 
