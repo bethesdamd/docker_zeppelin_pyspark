@@ -1,0 +1,292 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%pyspark\nfrom pyspark import SparkFiles\n\nurl = \"https://raw.githubusercontent.com/bethesdamd/mc_interview_exercise/master/master_list\"\nspark.sparkContext.addFile(url)\ndf = spark.read.option(\"delimiter\", \"\\t\").csv(\"file://\"+SparkFiles.get(\"master_list\"), header=True, inferSchema=True)\n# df.columns\n# df['Title']\n# df.printSchema()\ncountsByAuthor = df.groupBy(\"Author\").count()\ncountsByAuthor.show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-07T13:22:06+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------------+-----+\n|             Author|count|\n+-------------------+-----+\n|     Donald Barlett|    1|\n| Dominique Lapierre|    1|\n|Jonathan Gottschall|    1|\n|   George Santayana|    2|\n|      Peter Bevelin|    2|\n+-------------------+-----+\nonly showing top 5 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://06f9d79e5c6d:4040/jobs/job?id=47",
+              "$$hashKey": "object:5203"
+            },
+            {
+              "jobUrl": "http://06f9d79e5c6d:4040/jobs/job?id=48",
+              "$$hashKey": "object:5204"
+            },
+            {
+              "jobUrl": "http://06f9d79e5c6d:4040/jobs/job?id=49",
+              "$$hashKey": "object:5205"
+            },
+            {
+              "jobUrl": "http://06f9d79e5c6d:4040/jobs/job?id=50",
+              "$$hashKey": "object:5206"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1588854713444_233055406",
+      "id": "paragraph_1588854713444_233055406",
+      "dateCreated": "2020-05-07T12:31:53+0000",
+      "dateStarted": "2020-05-07T13:12:58+0000",
+      "dateFinished": "2020-05-07T13:13:00+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2274"
+    },
+    {
+      "text": "%pyspark\n# SQL\ndf.select('Title').show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-07T13:21:47+0000",
+      "config": {
+        "colWidth": 4,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://06f9d79e5c6d:4040/jobs/job?id=54",
+              "$$hashKey": "object:5195"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1588857004777_827534800",
+      "id": "paragraph_1588857004777_827534800",
+      "dateCreated": "2020-05-07T13:10:04+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:3974",
+      "dateFinished": "2020-05-07T13:21:48+0000",
+      "dateStarted": "2020-05-07T13:21:47+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------------+\n|               Title|\n+--------------------+\n|                1984|\n|                1984|\n|The Accidental Su...|\n|     Act of Congress|\n|Age of Ambition: ...|\n+--------------------+\nonly showing top 5 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%pyspark\n# SQL\ndf.select('Author').show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-07T13:21:45+0000",
+      "config": {
+        "colWidth": 4,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://06f9d79e5c6d:4040/jobs/job?id=53",
+              "$$hashKey": "object:5133"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1588854793567_-1804364147",
+      "id": "paragraph_1588854793567_-1804364147",
+      "dateCreated": "2020-05-07T12:33:13+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:2275",
+      "dateFinished": "2020-05-07T13:21:45+0000",
+      "dateStarted": "2020-05-07T13:21:45+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------------+\n|       Author|\n+-------------+\n|George Orwell|\n|George Orwell|\n| Peter Zeihan|\n|Robert Kaiser|\n|   Evan Osnos|\n+-------------+\nonly showing top 5 rows\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%pyspark\n\n# Hello World\nbig_list = range(10000)\nrdd = sc.parallelize(big_list, 2)\nodds = rdd.filter(lambda x: x % 2 != 0)\nodds.take(15)",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-07T13:22:40+0000",
+      "config": {
+        "colWidth": 4,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 90,
+              "optionOpen": false
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://06f9d79e5c6d:4040/jobs/job?id=55",
+              "$$hashKey": "object:5356"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1588857112684_-699418604",
+      "id": "paragraph_1588857112684_-699418604",
+      "dateCreated": "2020-05-07T13:11:52+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:4377",
+      "dateFinished": "2020-05-07T13:22:18+0000",
+      "dateStarted": "2020-05-07T13:22:17+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29]\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-05-07T13:22:17+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1588857737838_1921176448",
+      "id": "paragraph_1588857737838_1921176448",
+      "dateCreated": "2020-05-07T13:22:17+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:5226"
+    }
+  ],
+  "name": "My PySpark Note 1",
+  "id": "2F8SHH97G",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/My PySpark Note 1"
+}
