@@ -1,0 +1,4 @@
+Experiments running Zeppelin locally in Docker, with PySpark code.
+So this shows both using Zeppelin, and PySpark (Zeppelin has other kernels)
+
+
